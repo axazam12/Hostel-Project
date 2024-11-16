@@ -1,0 +1,171 @@
+
+{% extends 'student.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<style>
+    .parent {
+  width: 500px;
+  height:900px;
+  padding: 50px;
+  perspective: 1000px;
+  margin-left:380px
+}
+
+.card {
+  padding-top: 50px;
+  border-radius: 10px;
+  transform-style: preserve-3d;
+  background-image: radial-gradient(#052e44 2px, transparent 2px), radial-gradient(#0c567e 2px, transparent 2px);
+  background-size: 23px 23px;
+  background-position: 0 0, 11px 11px;
+  background-color: #f0f0f0;
+  width: 100%;
+  transition: all 0.5s ease-in-out;
+}
+
+.card:hover {
+  background-position: -110.5px 110.5px, -99px 99px;
+  transform: rotate3d(0.5, 1, 0, 30deg);
+}
+
+.content-box {
+  background: linear-gradient(135deg, rgba(0, 251, 255, 0.81) 0%, rgba(0,168,255,1) 100%);
+  border-radius: 0px 100px 10px 10px;
+   /* border-right: 2px solid white; */
+  width: 90%;
+  box-shadow: rgba(142, 142, 142, 0.686) 0px 20px 50px -10px;
+  transition: all 0.5s ease-in-out;
+  padding: 60px 25px 25px 25px;
+  transform-style: preserve-3d;
+}
+
+.content-box .card-title {
+  display: inline-block;
+  color: white;
+  font-size: 25px;
+  font-weight: 900;
+  transition: all 0.5s ease-in-out;
+  transform: translate3d(0px, 0px, 60px);
+}
+
+.content-box .card-title:hover {
+  transform: translate3d(0px, 0px, 50px);
+}
+
+.content-box .card-content {
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #f2f2f2;
+  transition: all 0.5s ease-in-out;
+  transform: translate3d(0px, 0px, 30px);
+}
+
+.content-box .card-content:hover {
+  transform: translate3d(0px, 0px, 50px);
+}
+
+.content-box .see-more {
+  cursor: pointer;
+  margin-top: 1rem;
+  display: inline-block;
+  font-weight: 900;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #ededed;
+  border-left: 2px solid #ededed;
+  border-radius: 0 0 0 1rem;
+  background: linear-gradient(245deg, rgba(0, 251, 255, 0) 0%, rgba(0,168,255,1) 100%);
+  padding: 0.7rem;
+  transition: all 0.5s ease-in-out;
+  transform: translate3d(0px, 0px, 20px);
+}
+
+.content-box .see-more:hover {
+  transform: translate3d(0px, 0px, 50px);
+}
+
+.date-box {
+  position: absolute;
+  top: 30px;
+  left: 25px;
+  height: 60px;
+  width: 60px;
+  background: linear-gradient(45deg, rgb(255, 255, 255) 0%, #d8d8d8 100%);
+  border-left: 2px solid rgb(7, 185, 255);
+  border-radius: 10px;
+  padding: 10px;
+	 /* box-shadow: #00bbff 0px 18px 20px 0px; */
+  transform: translate3d(0px, 0px, 80px);
+}
+
+.date-box span {
+  display: block;
+  text-align: center;
+}
+
+.date-box .month {
+  color: #052e44;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.date-box .date {
+  font-size: 20px;
+  font-weight: 900;
+  color: rgb(4, 193, 250);
+}
+section {
+    margin-left:1130px
+  }
+
+  .clock {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  span {
+    padding: 0.1rem;
+  }
+</style>
+<section>
+ <div class="clock">
+    <span id="hours">00</span> :
+    <span id="minutes">00</span> :
+    <span id="seconds">00</span>
+  </div>
+    <script>
+        function updateClock() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+
+    document.getElementById('hours').textContent = hours;
+    document.getElementById('minutes').textContent = minutes;
+    document.getElementById('seconds').textContent = seconds;
+  }
+
+  setInterval(updateClock, 1000);
+  updateClock();
+    </script>
+</section>
+<div class="parent">
+  <div class="card">
+      <div class="content-box">
+          <span class="card-title">welcome back {{request.user.student.name}}</span>
+          <p class="card-content">
+             Lets Explore Your Needs Using E_hostel Application
+          </p>
+          <a class="see-more" href="{% url 'homepage' %}">Go to Main Page</a>
+      </div>
+      <div class="date-box">
+          <span class="date"><img src="{{request.user.student.photo.url}}" height="45px"></span>
+      </div>
+  </div>
+</div>
+
+
+{% endblock %}

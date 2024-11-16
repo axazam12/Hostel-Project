@@ -1,0 +1,44 @@
+{% extends 'student.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="card">
+<div class="card">
+
+        <div class="card-header  bg-primary">
+            <strong class="card-title " style="color:white">HOSTEL DETAILS</strong>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+    <tr>
+        <th scope="col">SI NO</th>
+        <th scope="col">NAME</th>
+        <th scope="col">RENT</th>
+        <th scope="col">LOCATION</th>
+        <th scope="col">PHONE NO</th>
+        <th scope="col">FACILITIES</th>
+        <th scope="col">OCCUPIED</th>
+        <th scope="col">PHOTO</th>
+    </tr>
+                </thead>
+                <tbody>
+    {% for i in data %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.Hostel_Name}}</td>
+        <td>{{i.Rent}}</td>
+        <td>{{i.Location}}</td>
+        <td>{{i.Contact_No}}</td>
+        <td>{{i.room_facilities}}</td>
+        <td>{{i.occupied}}</td>
+        <td><img src="{{ i.photo.url }}"></td>
+    </tr>
+    {% endfor %}
+                </tbody>
+</table>
+</div>
+</div>
+</div>
+
+{% endblock %}

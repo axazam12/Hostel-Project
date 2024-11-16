@@ -1,0 +1,42 @@
+{% extends 'admin.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="card">
+<div class="card">
+
+        <div class="card-header  bg-primary">
+            <strong class="card-title " style="color:white">FOOD DETAILS</strong>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+    <tr>
+        <th scope="col">SI NO</th>
+        <th scope="col">DAYS</th>
+        <th scope="col">BREAK FAST</th>
+        <th scope="col">LUNCH</th>
+        <th scope="col">DINNER</th>
+        <th scope="col">UPDATE</th>
+        <th scope="col">DELETE</th>
+    </tr>
+                </thead>
+                <tbody>
+    {% for i in data %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.day}}</td>
+        <td>{{i.Breakfast}}</td>
+        <td>{{i.Lunch}}</td>
+        <td>{{i.Dinner}}</td>
+        <td><a class="btn btn-success" href="{% url 'updatefood' i.id %}">UPDATE</a></td>
+        <td><a class="btn btn-danger" href="{% url 'deletefood' i.id %}">DELETE</a></td>
+    </tr>
+    {% endfor %}
+                </tbody>
+</table>
+</div>
+</div>
+</div>
+
+{% endblock %}

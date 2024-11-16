@@ -1,0 +1,15 @@
+{% extends 'admin.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h1 style="margin-left:400px">ADD WARDEN</h1>
+<div class="card"  style="width: 50rem;">
+    <div class="card-body">
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+       {{w_form|crispy}}
+    <button type="submit" class="btn btn-success">Submit</button>
+</form>
+    </div>
+</div>
+
+{% endblock %}

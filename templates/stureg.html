@@ -1,0 +1,118 @@
+<!doctype html>
+{% load static %}
+{% load crispy_forms_tags %}
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title> App landing</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'regstatic/assets/img/favicon.ico' %}">
+
+	<!-- CSS here -->
+	<link rel="stylesheet" href="{% static 'regstatic/assets/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'regstatic/assets/css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="a{% static 'regstatic/ssets/css/slicknav.css' %}">
+    <link rel="stylesheet" href="{% static 'regstatic/assets/css/flaticon.css' %}">
+    <link rel="stylesheet" href="a{% static 'regstatic/ssets/css/progressbar_barfiller.css' %}">
+    <link rel="stylesheet" href="{% static 'regstatic/assets/css/gijgo.css' %}">
+    <link rel="stylesheet" href="{% static 'regstatic/assets/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'regstatic/assets/css/animated-headline.css' %}">
+	<link rel="stylesheet" href="{% static 'regstatic/assets/css/magnific-popup.css' %}">
+	<link rel="stylesheet" href="a{% static 'regstatic/ssets/css/fontawesome-all.min.css' %}">
+	<link rel="stylesheet" href="{% static 'regstatic/assets/css/themify-icons.css' %}">
+	<link rel="stylesheet" href="{% static 'regstatic/assets/css/slick.css' %}">
+	<link rel="stylesheet" href="{% static 'regstatic/assets/css/nice-select.css' %}">
+	<link rel="stylesheet" href="{% static 'regstatic/assets/css/style.css' %}">
+    <style>
+       form{
+         color:white;
+         text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <!-- ? Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="{% static 'regstatic/assets/img/logo/loder.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start-->
+
+
+<!-- Register -->
+
+<main class="login-body" data-vide-bg="{% static 'regstatic/assets/img/login-bg.mp4' %}">
+    <!-- Login Admin -->
+    <form class="form-default" method="post" enctype="multipart/form-data" class="loginfrm">
+        {% csrf_token %}
+        <div class="login-form">
+            <!-- logo-login -->
+            <div class="logo-login">
+                <a href="index.html"><img src="{% static 'regstatic/assets/img/logo/loder.png' %}" alt=""></a>
+            </div>
+            <h2>Registration Here</h2>
+            {{u_form|crispy}}
+            {{User_regform|crispy}}
+            <!-- Forget Password -->
+            <button type="submit" class="btn btn-success">Login</button>
+        </div>
+    </form>
+    <!-- /end login form -->
+</main>
+
+
+    <script src="{% static 'regstatic/assets/js/vendor/modernizr-3.5.0.min.js' %}"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="{% static 'regstatic/assets/js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'regstatic/assets/js/popper.min.js' %}"></script>
+    <script src="{% static 'regstatic/assets/js/bootstrap.min.js' %}"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="{% static 'regstatic/assets/js/jquery.slicknav.min.js' %}"></script>
+
+    <!-- Video bg -->
+    <script src="{% static 'regstatic/assets/js/jquery.vide.js' %}"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="{% static 'regstatic/assets/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'regstatic/assets/js/slick.min.js' %}"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="{% static 'regstatic/assets/js/wow.min.js' %}"></script>
+    <script src="{% static 'regstatic/assets/js/animated.headline.js' %}"></script>
+    <script src="{% static 'regstatic/assets/js/jquery.magnific-popup.js' %}"></script>
+
+    <!-- Date Picker -->
+    <script src="{% static 'regstatic/assets/js/gijgo.min.js' %}"></script>
+    <!-- Nice-select, sticky -->
+    <script src="{% static 'regstatic/assets/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'regstatic/assets/js/jquery.sticky.js' %}"></script>
+    <!-- Progress -->
+    <script src="{% static 'regstatic/assets/js/jquery.barfiller.js' %}"></script>
+
+    <!-- counter , waypoint,Hover Direction -->
+    <script src="{% static 'regstatic/assets/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'regstatic/assets/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'regstatic/assets/js/jquery.countdown.min.js' %}"></script>
+    <script src="{% static 'regstatic/assets/js/hover-direction-snake.min.js' %}"></script>
+
+    <!-- contact js -->
+    <script src="{% static 'regstatic/assets/js/contact.js' %}"></script>
+    <script src="{% static 'regstatic/assets/js/jquery.form.js' %}"></script>
+    <script src="{% static 'regstatic/assets/js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'regstatic/assets/js/mail-script.js' %}"></script>
+    <script src="{% static 'regstatic/assets/js/jquery.ajaxchimp.min.js' %}"></script>
+
+    <!-- Jquery Plugins, main Jquery -->
+    <script src="{% static 'regstatic/assets/js/plugins.js' %}"></script>
+    <script src="{% static 'regstatic/assets/js/main.js' %}"></script>
+
+    </body>
+</html>
